@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+void XuatMang(int n, int arr[n]){
+    for(int i = 0; i < n; i++){
+        printf("%d ",arr[i]);
+    }
+}
+
+int main()
+{
+    int n,addnumber,position,m,value;
+    printf("Nhap chieu dai mang: ");
+    scanf("%d",&n);
+    m=n;
+    int arr[1000],arr2[1000],arrtam[1000];
+    printf("Nhap cac phan tu cua mang: \n");
+    for(int i = 0; i< n; i++){
+        printf("value[%d] = ",i);
+        scanf("%d",&arr[i]);
+    }
+    //gan mang arrtam bang voi mang arr de giu lai mang arr khi thao tac
+    for(int i = 0; i<n;i++){
+            arrtam[i]=arr[i];
+    }
+    
+    printf("Ban muon chen them bao nhieu phan tu: ");
+    scanf("%d",&addnumber);
+    for(int i = 0;i<addnumber;i++){
+        printf("Phan tu thu %d ban muon nhap: ",i+1);
+        scanf("%d",&value);
+        printf("Vi tri can chen phan tu nay: ");
+        scanf("%d",&position);
+        m++;//gia tri do dai cua mang duoc mo rong them
+        //Thu hien chen gia tri moi vao mang arr2
+        for(int j = 0; j < n; j++){
+            if(j==position-1){
+                arr2[j]=value; // Chen gia tri moi vao vi tri can chen
+                for(int k = j+1;k<m;k++){
+                    arr2[k] = arrtam[k-1]; // Ghi cac gia tri con lai vao sau khi chen gtri moi
+                }
+                break;
+            }
+            arr2[j]=arrtam[j];// Neu chua den vi tri can chen thi gan cac gtri cu tuong ung
+        }
+        //Cap nhap mang tam de su dung cho vong lap tiep theo
+        for(int l = 0; l<m;l++){
+            arrtam[l]=arr2[l];
+        }
+    }
+    
+    printf("Day so ban da nhap: ");
+    XuatMang(n,arr);
+    printf("\nDay so sau khi chen them %d phan tu: ",addnumber);
+    XuatMang(m,arr2);
+}
