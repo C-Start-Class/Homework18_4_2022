@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+void XuatMang(int n, int arr[n]){
+    for(int i = 0; i < n; i++){
+        printf("%d ",arr[i]);
+    }
+}
+
+int KtraChieuDai(int count,int a){
+    if(a==0){
+        return count;
+    }
+    count++;
+    return KtraChieuDai(count,a/10);
+}
+int main()
+{
+    int n;
+    int count=0;
+    printf("Nhap chieu dai mang: ");
+    scanf("%d",&n);
+    int arr[n];
+    printf("Nhap cac phan tu cua mang: \n");
+    for(int i = 0; i< n; i++){
+        printf("value[%d] = ",i);
+        scanf("%d",&arr[i]);
+    }
+    for(int i = 0; i< n; i++){
+        printf("So %d co chieu dai la %d\n",arr[i],KtraChieuDai(count,arr[i]));
+    }
+    
+}
