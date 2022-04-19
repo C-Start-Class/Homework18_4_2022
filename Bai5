@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main()
+{
+    int n;
+    int count[10]={};
+    printf("Nhap chieu dai mang: ");
+    scanf("%d",&n);
+    int arr[n];
+    printf("Nhap cac phan tu cua mang: \n");
+    for(int i = 0; i< n; i++){
+        printf("value[%d] = ",i);
+        scanf("%d",&arr[i]);
+    }
+    for(int i = 0; i<10;i++){
+        for(int j =0;j<n;j++){
+            if(arr[j]==i){
+                count[i]++;
+            }
+        }
+        if(count[i]!=0){
+        printf("So %d xuat hien %d lan\n",i,count[i]);
+        }
+    }
+}
